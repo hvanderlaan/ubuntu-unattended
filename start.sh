@@ -9,10 +9,10 @@ spinner()
     local spinstr='|/-\'
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
+        printf " [%c]: $2 " "$spinstr"
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
-        printf "\b\b\b\b\b\b"
+        printf "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
     done
     printf "    \b\b\b\b"
 }
@@ -30,18 +30,6 @@ if [ "$(id -u)" != "0" ]; then
    echo
    exit 1
 fi
-
-# define download function
-# courtesy of http://fitnr.com/showing-file-download-progress-using-wget.html
-download()
-{
-    local url=$1
-    echo -n "    "
-    wget --progress=dot $url 2>&1 | grep --line-buffered "%" | \
-        sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
-    echo -ne "\b\b\b\b"
-    echo " DONE"
-}
 
 # determine ubuntu version
 ubuntu_version=$(lsb_release -cs)
@@ -69,12 +57,12 @@ sed -i "s@ubuntu@$hostname@g" /etc/hosts
 hostname "$hostname"
 
 # update repos
-(apt-get -y update > /dev/null 2>&1) & spinner $!
-(apt-get -y upgrade > /dev/null 2>&1) & spinner $!
-(apt-get -y dist-upgrade > /dev/null 2>&1) & spinner $!
-(apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1) & spinner $!
-(apt-get -y autoremove > /dev/null 2>&1) & spinner $!
-(apt-get -y purge > /dev/null 2>&1) & spinner $!
+(apt-get -y update > /dev/null 2>&1) & spinner $! "update apt repo  "
+(apt-get -y upgrade > /dev/null 2>&1) & spinner $! "upgrade os       "
+(apt-get -y dist-upgrade > /dev/null 2>&1) & spinner $! "dist-upgrade os  "
+(apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1) & spinner $! "install packages "
+(apt-get -y autoremove > /dev/null 2>&1) & spinner $! "remove kernels   "
+(apt-get -y purge > /dev/null 2>&1) & spinner $! "clean up         "
 
 # changing bash to zsh
 wget -O /home/$username/.zaliasses 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zaliasses' > /dev/null 2>&1
