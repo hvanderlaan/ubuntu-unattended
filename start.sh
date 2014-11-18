@@ -1,6 +1,22 @@
 #!/bin/bash
 set -e
 
+spinner()
+{
+    local pid=$1
+    local action=$2
+    local delay=0.75
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
 # set defaults
 default_hostname="$(hostname)"
 default_domain="local"
@@ -53,12 +69,12 @@ sed -i "s@ubuntu@$hostname@g" /etc/hosts
 hostname "$hostname"
 
 # update repos
-apt-get -y update > /dev/null 2>&1
-apt-get -y upgrade > /dev/null 2>&1
-apt-get -y dist-upgrade > /dev/null 2>&1
-apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1
-apt-get -y autoremove > /dev/null 2>&1
-apt-get -y purge > /dev/null 2>&1
+(apt-get -y update > /dev/null 2>&1) & spinner $!
+(apt-get -y upgrade > /dev/null 2>&1) & spinner $!
+(apt-get -y dist-upgrade > /dev/null 2>&1) & spinner $!
+(apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1) & spinner $!
+(apt-get -y autoremove > /dev/null 2>&1) & spinner $!
+(apt-get -y purge > /dev/null 2>&1) & spinner $!
 
 # changing bash to zsh
 wget -O /home/$username/.zaliasses 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zaliasses' > /dev/null 2>&1
