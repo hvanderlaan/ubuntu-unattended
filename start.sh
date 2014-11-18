@@ -56,7 +56,7 @@ hostname "$hostname"
 apt-get -y update > /dev/null 2>&1
 apt-get -y upgrade > /dev/null 2>&1
 apt-get -y dist-upgrade > /dev/null 2>&1
-apt-get -y install zsh git curl vim > /dev/null 2>&1
+apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1
 apt-get -y autoremove > /dev/null 2>&1
 apt-get -y purge > /dev/null 2>&1
 
