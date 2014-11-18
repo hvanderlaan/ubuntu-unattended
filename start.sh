@@ -4,7 +4,7 @@ set -e
 # set defaults
 default_hostname="$(hostname)"
 default_domain="local"
-tmp="/home/haraldvdlaan/"
+tmp=$(pwd)
 
 clear
 
@@ -37,6 +37,7 @@ if ! grep -q "noninteractive" /proc/cmdline ; then
     # ask questions
     read -ep " please enter your preferred hostname: " -i "$default_hostname" hostname
     read -ep " please enter your preferred domain: " -i "$default_domain" domain
+    read -ep " please enter your username: " -i "haraldvdlaan" username
 fi
 
 # print status message
@@ -55,8 +56,19 @@ hostname "$hostname"
 apt-get -y update > /dev/null 2>&1
 apt-get -y upgrade > /dev/null 2>&1
 apt-get -y dist-upgrade > /dev/null 2>&1
+apt-get -y install zsh git curl vim > /dev/null 2>&1
 apt-get -y autoremove > /dev/null 2>&1
 apt-get -y purge > /dev/null 2>&1
+
+# changing bash to zsh
+wget -O /home/$username/.zaliasses 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zaliasses'
+wget -O /home/$username/.zfunctions 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zfunctions'
+wget -O /home/$username/.zcolor 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zcolor'
+wget -O /home/$username/.zcompdump 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zcompdump'
+wget -O /home/$username/.zprompt 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zprompt'
+wget -O /home/$username/.zshrc 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zshrc'
+usermod -s /usr/bin/zsh $username
+chown $username:$username .z*
 
 # remove myself to prevent any unintended changes at a later stage
 rm $0
