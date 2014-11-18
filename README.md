@@ -99,7 +99,7 @@ This script does a bunch of stuff, here's the quick walk-through:
  -----
  finished remastering your ubuntu iso file
  the new file is located at: /tmp/ubuntu-14.04.1-server-amd64-unattended.iso
- your username is: netson
+ your username is: haraldvdlaan
  your password is: 
  your hostname is: ubuntu
  your timezone is: Europe/Amsterdam
