@@ -51,6 +51,13 @@ echo " |            UNATTENDED UBUNTU ISO MAKER            |"
 echo " +---------------------------------------------------+"
 echo 
 
+if [ ${UID} -ne 0 ]; then
+    echo " [-] This script must be runned with root privileges."
+    echo " [-] sudo ${0}"
+    echo
+    exit 1
+fi
+
 # ask whether to include vmware tools or not
 while true; do
     echo " which ubuntu edition would you like to remaster:"
