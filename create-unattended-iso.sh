@@ -149,8 +149,8 @@ cd $tmp/iso_new
 echo en > $tmp/iso_new/isolinux/lang
 
 # set late command
-late_command="chroot /target wget -O /home/$username/start.sh https://github.com/hvanderlaan/ubuntu-unattended/raw/master/start.sh ;\
-    chroot /target chmod +x /home/$username/start.sh ;"
+late_command="chroot /target wget -O /home/$username/init.sh https://github.com/hvanderlaan/ubuntu-unattended/raw/master/init.sh ;\
+    chroot /target chmod +x /home/$username/init.sh ;"
 
 # copy the netson seed file to the iso
 cp -rT $tmp/$seed_file $tmp/iso_new/preseed/$seed_file

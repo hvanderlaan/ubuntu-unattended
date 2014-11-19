@@ -107,6 +107,6 @@ This script does a bunch of stuff, here's the quick walk-through:
 
 ### Once Ubuntu is installed ...
 
-Just fire off the start.sh script in your users' home directory to complete the installation. 
+Just fire off the init.sh script in your users' home directory to complete the installation. 
 
-```$ sudo ~/start.sh``` 
+```$ sudo ~/init.sh``` 
