@@ -23,7 +23,7 @@ This script has been tested on and with these two versions as well, but I see no
 
 ```
 $ wget https://raw.githubusercontent.com/hvanderlaan/ubuntu-unattended/master/create-unattended-iso.sh
-$ chmod +x create-unattended-iso.sh
+$ chmod 0744 create-unattended-iso.sh
 $ sudo ./create-unattended-iso.sh
 ```
 
