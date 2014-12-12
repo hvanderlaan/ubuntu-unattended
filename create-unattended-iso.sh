@@ -73,17 +73,17 @@ while true; do
     echo
     read -p " please enter your preference: [1|2|3|4]: " ubver
     case $ubver in
-        [1]* )  download_file="ubuntu-14.04.1-server-i386.iso"           # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/14.04.1/"     # location of the file to be downloaded
-                new_iso_name="ubuntu-14.04.1-server-i386-unattended.iso" # filename of the new iso file to be created
+        [1]* )  download_file="ubuntu-14.04.1-server-i386.iso"            # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/14.04.1/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-14.04.1-server-i386-unattended.iso"  # filename of the new iso file to be created
                 break;;
-        [2]* )  download_file="ubuntu-14.04.1-server-amd64.iso"             # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/14.04.1/"     # location of the file to be downloaded
-                new_iso_name="ubuntu-14.04.1-server-amd64-unattended.iso"   # filename of the new iso file to be created
+        [2]* )  download_file="ubuntu-14.04.1-server-amd64.iso"           # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/14.04.1/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-14.04.1-server-amd64-unattended.iso" # filename of the new iso file to be created
                 break;;
-        [3]* )  download_file="ubuntu-14.10-server-i386.iso"             # filename of the iso to be downloaded
+        [3]* )  download_file="ubuntu-14.10-server-i386.iso"              # filename of the iso to be downloaded
                 download_location="http://releases.ubuntu.com/14.10/"     # location of the file to be downloaded
-                new_iso_name="ubuntu-14.10-server-i386-unattended.iso"   # filename of the new iso file to be created
+                new_iso_name="ubuntu-14.10-server-i386-unattended.iso"    # filename of the new iso file to be created
                 break;;
         [4]* )  download_file="ubuntu-14.10-server-amd64.iso"             # filename of the iso to be downloaded
                 download_location="http://releases.ubuntu.com/14.10/"     # location of the file to be downloaded
