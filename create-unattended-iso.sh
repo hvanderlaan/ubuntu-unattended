@@ -118,7 +118,7 @@ fi
 # download netson seed file
 seed_file="haraldvdlaan.seed"
 if [[ ! -f $tmp/$seed_file ]]; then
-    echo -h " downloading $seed_file: "
+    echo -n " downloading $seed_file: "
     download "https://github.com/hvanderlaan/ubuntu-unattended/raw/master/$seed_file"
 fi
 
