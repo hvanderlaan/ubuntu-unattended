@@ -72,12 +72,17 @@ echo
 echo
 (apt-get -y dist-upgrade > /dev/null 2>&1) & spinner $! "dist-upgrade ubuntu os ..."
 echo
-(apt-get -y install openssh-server zsh git curl vim > /dev/null 2>&1) & spinner $! "installing extra software ..."
+(apt-get -y install openssh-server zsh git curl vim npm > /dev/null 2>&1) & spinner $! "installing extra software ..."
 echo
 (apt-get -y autoremove > /dev/null 2>&1) & spinner $! "removing old kernels and packages ..."
 echo
 (apt-get -y purge > /dev/null 2>&1) & spinner $! "purging removed packages ..."
 echo
+(npm install -G keybase-installer 2>&1) & spinner $! "downloading keybase ..."
+echo
+(keybase-installler 2>&1) & spinner $! "installing keybase ..."
+echo
+
 
 # changing bash to zsh
 wget -O /home/$username/.zaliasses 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zaliasses' > /dev/null 2>&1
