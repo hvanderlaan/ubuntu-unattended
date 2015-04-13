@@ -78,9 +78,13 @@ echo
 echo
 (apt-get -y purge > /dev/null 2>&1) & spinner $! "purging removed packages ..."
 echo
-(npm install -g keybase-installer 2>&1 > /dev/null) & spinner $! "downloading keybase ..."
+
+## fix for installing keybase nodejs uses /usr/bin/nodejs but keybase will use /usr/bin/node
+ln -s /usr/bin/nodejs /usr/bin/node
+
+(npm install -g keybase-installer &> /dev/null) & spinner $! "downloading keybase ..."
 echo
-(keybase-installler 2>&1 > /dev/null) & spinner $! "installing keybase ..."
+(keybase-installer &> /dev/null) & spinner $! "installing keybase ..."
 echo
 
 
