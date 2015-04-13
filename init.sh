@@ -78,9 +78,9 @@ echo
 echo
 (apt-get -y purge > /dev/null 2>&1) & spinner $! "purging removed packages ..."
 echo
-(npm install -G keybase-installer 2>&1) & spinner $! "downloading keybase ..."
+(npm install -g keybase-installer 2>&1 > /dev/null) & spinner $! "downloading keybase ..."
 echo
-(keybase-installler 2>&1) & spinner $! "installing keybase ..."
+(keybase-installler 2>&1 > /dev/null) & spinner $! "installing keybase ..."
 echo
 
 
