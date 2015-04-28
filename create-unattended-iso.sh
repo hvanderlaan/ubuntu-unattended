@@ -70,8 +70,10 @@ while true; do
     echo "  [2] Ubuntu 14.04.2 LTS Server amd64 - Trusty Tahr"
     echo "  [3] Ubuntu 14.10 Server i386  - Utopic Unicorn"
     echo "  [4] Ubuntu 14.10 Server amd64 - Utopic Unicorn"
+    echo "  [5] Ubuntu 14.10 Server i386 - Vivid Vervet"
+    echo "  [6] Ubuntu 14.10 Server amd64 - Vivid Vervet"
     echo
-    read -p " please enter your preference: [1|2|3|4]: " ubver
+    read -p " please enter your preference: [1|2|3|4|5|6]: " ubver
     case $ubver in
         [1]* )  download_file="ubuntu-14.04.2-server-i386.iso"            # filename of the iso to be downloaded
                 download_location="http://releases.ubuntu.com/14.04.2/"   # location of the file to be downloaded
@@ -89,7 +91,15 @@ while true; do
                 download_location="http://releases.ubuntu.com/14.10/"     # location of the file to be downloaded
                 new_iso_name="ubuntu-14.10-server-amd64-unattended.iso"   # filename of the new iso file to be created
                 break;;
-        * ) echo " please answer [1], [2], [3] or [4]";;
+	[5]* )  download_file="ubuntu-15.04-server-i386.iso"              # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/15.04/"     # location of the file to be downloaded
+                new_iso_name="ubuntu-15.04-server-i386-unattended.iso"    # filename of the new iso file to be created
+                break;;
+	[6]* )  download_file="ubuntu-15.04-server-amd64.iso"             # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/15.04/"     # location of the file to be downloaded
+                new_iso_name="ubuntu-15.04-server-amd64-unattended.iso"   # filename of the new iso file to be created
+                break;;
+        * ) echo " please answer [1], [2], [3], [4], [5] or [6]";;
     esac
 done
 
