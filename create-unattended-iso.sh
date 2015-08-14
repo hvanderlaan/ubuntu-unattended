@@ -217,6 +217,7 @@ echo
 # unset vars
 unset username
 unset password
+unset password2
 unset hostname
 unset timezone
 unset pwhash
