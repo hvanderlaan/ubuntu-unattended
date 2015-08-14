@@ -142,7 +142,7 @@ if [ $(program_is_installed "mkpasswd") -eq 0 ] || [ $(program_is_installed "mki
     
     # thanks to rroethof
     if [ -f /usr/bin/mkisofs ]; then
-      ls -s /usr/bin/genisoimage /usr/bin/mkisofs
+      ln -s /usr/bin/genisoimage /usr/bin/mkisofs
     fi
 fi
 
