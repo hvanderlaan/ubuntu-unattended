@@ -2,7 +2,6 @@
 
 # file names & paths
 tmp="/tmp"  # destination folder to store the final iso file
-hostname="ubuntu"
 
 # define spinner function for slow tasks
 # courtesy of http://fitnr.com/showing-a-bash-spinner.html
@@ -104,19 +103,26 @@ while true; do
 done
 
 # ask the user questions about his/her preferences
-read -ep " please enter your preferred timezone: " -i "Europe/Amsterdam" timezone
-read -ep " please enter your preferred username: " -i "haraldvdlaan" username
-read -sp " please enter your preferred password: " password
-printf "\n"
-read -sp " confirm your preferred password: " password2
-printf "\n"
-
-# check if the passwords match to prevent headaches
-if [[ "$password" != "$password2" ]]; then
-    echo " your passwords do not match; please restart the script and try again"
-    echo
-    exit
+if ! timezone=`cat /etc/timezone 2> /dev/null`; then
+    timezone="Europe/Amsterdam"
 fi
+read -ep " please enter your preferred timezone: " -i $timezone timezone
+read -ep " please enter your preferred hostname: " -i "ubuntu" hostname
+read -ep " please enter your preferred username: " -i "`logname`" username
+exit
+# check if the passwords match to prevent headaches
+while true; do
+    read -sp " please enter your preferred password: " password
+    printf "\n"
+    read -sp " confirm your preferred password: " password2
+    printf "\n"
+    if [[ "$password" != "$password2" ]]; then
+        echo " your passwords do not match; please try again"
+        echo
+    else
+        break
+    fi
+done
 
 # download the ubunto iso
 cd $tmp
