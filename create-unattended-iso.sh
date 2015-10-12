@@ -109,7 +109,7 @@ fi
 read -ep " please enter your preferred timezone: " -i $timezone timezone
 read -ep " please enter your preferred hostname: " -i "ubuntu" hostname
 read -ep " please enter your preferred username: " -i "`logname`" username
-exit
+
 # check if the passwords match to prevent headaches
 while true; do
     read -sp " please enter your preferred password: " password
