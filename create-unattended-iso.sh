@@ -177,7 +177,6 @@ echo en > $tmp/iso_new/isolinux/lang
 if $autostart ; then
     sed -i "s/timeout 0/timeout 1/" $tmp/iso_new/isolinux/isolinux.cfg
 fi
-exit
 
 # set late command
 late_command="chroot /target wget -O /home/$username/init.sh https://github.com/hvanderlaan/ubuntu-unattended/raw/master/init.sh ;\
