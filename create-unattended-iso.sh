@@ -118,6 +118,12 @@ if [[ "$password" != "$password2" ]]; then
     exit
 fi
 
+read -p " autostart installation on boot (y/n)?" choice
+case "$choice" in 
+  y|Y ) autostart=true;;
+  * ) autostart=false;;
+esac
+
 # download the ubunto iso
 cd $tmp
 if [[ ! -f $tmp/$download_file ]]; then
@@ -166,6 +172,11 @@ spinner $!
 # set the language for the installation menu
 cd $tmp/iso_new
 echo en > $tmp/iso_new/isolinux/lang
+
+# set timeout to 1 decisecond to skip language & boot menu option selection.
+if $autostart ; then
+    sed -i "s/timeout 0/timeout 1/" $tmp/iso_new/isolinux/isolinux.cfg
+fi
 
 # set late command
 late_command="chroot /target wget -O /home/$username/init.sh https://github.com/hvanderlaan/ubuntu-unattended/raw/master/init.sh ;\
