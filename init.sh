@@ -72,21 +72,12 @@ echo
 echo
 (apt-get -y dist-upgrade > /dev/null 2>&1) & spinner $! "dist-upgrade ubuntu os ..."
 echo
-(apt-get -y install openssh-server zsh git curl vim npm > /dev/null 2>&1) & spinner $! "installing extra software ..."
+(apt-get -y install zsh git curl vim > /dev/null 2>&1) & spinner $! "installing extra software ..."
 echo
 (apt-get -y autoremove > /dev/null 2>&1) & spinner $! "removing old kernels and packages ..."
 echo
 (apt-get -y purge > /dev/null 2>&1) & spinner $! "purging removed packages ..."
 echo
-
-## fix for installing keybase nodejs uses /usr/bin/nodejs but keybase will use /usr/bin/node
-ln -s /usr/bin/nodejs /usr/bin/node
-
-(npm install -g keybase-installer &> /dev/null) & spinner $! "downloading keybase ..."
-echo
-(keybase-installer &> /dev/null) & spinner $! "installing keybase ..."
-echo
-
 
 # changing bash to zsh
 wget -O /home/$username/.zaliasses 'https://raw.githubusercontent.com/hvanderlaan/zsh/master/.zaliasses' > /dev/null 2>&1
