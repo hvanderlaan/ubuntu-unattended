@@ -12,8 +12,8 @@ The script supports the following Ubuntu editions out of the box:
 
 * Ubuntu 14.04.3 Server LTS i386  - Trusty Tahr
 * Ubuntu 14.04.3 Server LTS amd64 - Trusty Tahr
-* Ubuntu 15.10 Server i386        - Utopic Unicorn
-* Ubuntu 15.10 Server adm64       - Utopic Unicorn
+* Ubuntu 15.10 Server i386        - Wily Werewolf
+* Ubuntu 15.10 Server adm64       - Wily Werewolf
 
 This script has been tested on and with these two versions as well, but I see no reason why it shouldn't work with other Ubuntu editions. Other editions would require minor changes to the script though.
 
@@ -38,8 +38,8 @@ $ sudo ./create-unattended-iso.sh
 
   [1] Ubuntu 14.04.3 LTS Server i386  - Trusty Tahr
   [2] Ubuntu 14.04.3 LTS Server amd64 - Trusty Tahr
-  [3] Ubuntu 15.10 Server i386  - Utopic Unicorn
-  [4] Ubuntu 15.10 Server amd64 - Utopic Unicorn
+  [3] Ubuntu 15.10 Server i386  - Wily Werewolf
+  [4] Ubuntu 15.10 Server amd64 - Wily Werewolf
 
  please enter your preference: [1|2|3|4]:
 ```

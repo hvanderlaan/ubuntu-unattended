@@ -67,8 +67,8 @@ while true; do
     echo
     echo "  [1] Ubuntu 14.04.3 LTS Server i386  - Trusty Tahr"
     echo "  [2] Ubuntu 14.04.3 LTS Server amd64 - Trusty Tahr"
-    echo "  [3] Ubuntu 15.10 Server i386 - Vivid Vervet"
-    echo "  [4] Ubuntu 15.10 Server amd64 - Vivid Vervet"
+    echo "  [3] Ubuntu 15.10 Server i386 - Wily Werewolf"
+    echo "  [4] Ubuntu 15.10 Server amd64 - Wily Werewolf"
     echo
     read -p " please enter your preference: [1|2|3|4]: " ubver
     case $ubver in
