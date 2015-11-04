@@ -66,6 +66,10 @@ d-i partman-auto-lvm/new_vg_name                            string 	vg
 
 d-i partman-auto/expert_recipe                              string \
 	defaultserver :: \
+		512 512 512 ext4 method{ format } \
+		$primary{ } $bootable{ } mountpoint{ /boot } \
+		format{ } use_filesystem{ } filesystem{ ext4 } \
+                . \
 		2048 2048 2048 linux-swap method{ swap } \
 		format{ } $lvmok{ } lv_name{ lv_swap } \
 		. \
