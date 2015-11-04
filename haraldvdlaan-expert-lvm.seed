@@ -56,53 +56,55 @@ d-i pkgsel/update-policy                                    select      none
 d-i pkgsel/updatedb                                         boolean     true
 
 # disk partitioning expert lvm
-d-i partman-auto/methode                                    string	lvm
-d-i partman-auto/choose_recipe                              select      defaultserver
-d-i partman-lvm/device_remove_lvm                           boolean	true
-d-i partman-md/device_remove_md                             boolean 	true
-d-i partman-auto-lvm/no_boot                                boolean 	true
-d-i partman-auto/disk                                       string 	/dev/sda /dev/sdb /dev/sdc /dev/sdd
-d-i partman-auto-lvm/new_vg_name                            string 	vg
-
-d-i partman-auto/expert_recipe                              string \
-	defaultserver :: \
-		512 512 512 ext4 method{ format } \
-		$primary{ } $bootable{ } mountpoint{ /boot } \
-		format{ } use_filesystem{ } filesystem{ ext4 } \
-                . \
-		2048 2048 2048 linux-swap method{ swap } \
-		format{ } $lvmok{ } lv_name{ lv_swap } \
-		. \
-		4096 4096 4096 etx4 method{ lvm } \
-		$lvmok{ } mountpoint{ / } lv_name{ root } \
-		format{ } use_filesystem{ } filesystem{ ext4 } \
-		options/relatime{ relatime } \
-		. \
-		4096 4096 4096 ext4 method{ lvm } \
-		$lvmok{ } mountpoint{ /home } lv_name{ home } \
-		format{ } use_filesystem{ } filesystem{ ext4 } \
-		options/relatime{ relatime } \
-		. \
-		4096 4096 4096 ext4 method{ lvm } \
-		$lvmok{ } mountpoint{ /usr } lv_name{ usr } \
-		format{ } use_filesystem{ } filesystem{ ext4 } \
-		options/relatime{ relatime } \
-		. \
-		4096 4096 4096 ext4 method{ lvm } \
-		$lvmok{ } mountpoint{ /var } lv_name{ var } \
-		format{ } use_filesystem{ } filesystem{ ext4 } \
-		options/relatime{ relatime} \
-		.
-
-d-i partman-lvm/confirm_nooverwrite                         boolean 	true
-d-i partman-lvm/confirm                                     boolean 	true
-d-i partman-partitioning/confirm_write_new_label            boolean 	true
-d-i partman/choose_partition                                select 	finish
-d-i partman/confirm_nooverwrite                             boolean 	true
-d-i partman/confirm                                         boolean 	true
+d-i partman/confirm_write_new_label                         boolean     true
+d-i partman/choose_partition                                select      finish
+d-i partman/confirm_nooverwrite                             boolean     true
+d-i partman/confirm                                         boolean     true
+d-i partman-auto/purge_lvm_from_device                      boolean     true
+d-i partman-lvm/device_remove_lvm                           boolean     true
+d-i partman-lvm/confirm                                     boolean     true
+d-i partman-lvm/confirm_nooverwrite                         boolean     true
+d-i partman-auto-lvm/no_boot                                boolean     true
+d-i partman-md/device_remove_md                             boolean     true
+d-i partman-md/confirm                                      boolean     true
+d-i partman-md/confirm_nooverwrite                          boolean     true
+d-i partman-auto/method                                     string      lvm
+d-i partman-auto-lvm/new_vg_name                            string      system
+d-i partman-auto/expert_recipe                              string      \
+      boot-swap-var-root ::                                   \
+              1024 1024 1024 ext4                             \
+                      $primary{ } $bootable{ }                \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ /boot }                     \
+              .                                               \
+              1024 1024 1024 swap                             \
+                      $lvmok{ }                               \
+                      method{ swap } format{ }                \
+              .                                               \
+              4096 4096 4096 ext4                             \
+                      $lvmok{ }                               \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ / }                         \
+              .                                               \
+              4096 4096 4096 ext4                             \
+                      $lvmok{ }                               \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ /usr }                      \
+              .                                               \
+              4096 4096 1000000000 ext4                       \
+                      $lvmok{ }                               \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ /var }                      \
+              .
+d-i partman-partitioning/confirm_write_new_label            boolean     true
+d-i partman/default_filesystem                              string      ext4
 
 # grub boot loader
-d-i grub-installer grub-installer/bootdev                   string      /dev/vda
+# d-i grub-installer grub-installer/bootdev                   string      /dev/vda
 d-i grub-installer/only_debian                              boolean     true
 d-i grub-installer/with_other_os                            boolean     true
 
