@@ -96,9 +96,19 @@ done
 if ! timezone=`cat /etc/timezone 2> /dev/null`; then
     timezone="Europe/Amsterdam"
 fi
-read -ep " please enter your preferred timezone: " -i $timezone timezone
-read -ep " please enter your preferred hostname: " -i "ubuntu" hostname
-read -ep " please enter your preferred username: " -i "`logname`" username
+read -ep " please enter your preferred timezone  : " -i $timezone timezone
+read -ep " please enter your preferred hostname  : " -i "ubuntu" hostname
+read -ep " please enter your preferred username  : " -i "`logname`" username
+read -ep " please enter lvm type (guided/expert) : " -i "expert" lvmtype
+
+# ask user with type of lvm to use
+while true; do
+	case ${lvmtype} in
+		guided) seed_file="haraldvdlaan.seed" ; break ;;
+		expert) seed_file="haraldvdlaan-expert-lvm.seed" ; break ;;
+		* ) echo " please enter only guided or expert." ;;
+	esac
+done
 
 # check if the passwords match to prevent headaches
 while true; do
@@ -128,7 +138,6 @@ if [[ ! -f $tmp/$download_file ]]; then
 fi
 
 # download netson seed file
-seed_file="haraldvdlaan.seed"
 if [[ ! -f $tmp/$seed_file ]]; then
     echo -n " downloading $seed_file: "
     download "https://github.com/hvanderlaan/ubuntu-unattended/raw/master/$seed_file"
@@ -204,7 +213,7 @@ seed_checksum=$(md5sum $tmp/iso_new/preseed/$seed_file)
 sed -i "/label install/ilabel autoinstall\n\
   menu label ^Unattended Ubuntu Server Install\n\
   kernel /install/vmlinuz\n\
-  append file=/cdrom/preseed/ubuntu-server-minimalvm.seed initrd=/install/initrd.gz auto=true priority=high preseed/file=/cdrom/preseed/haraldvdlaan.seed preseed/file/checksum=$seed_checksum --" $tmp/iso_new/isolinux/txt.cfg
+  append file=/cdrom/preseed/ubuntu-server-minimalvm.seed initrd=/install/initrd.gz auto=true priority=high preseed/file=/cdrom/preseed/${seed_file} preseed/file/checksum=$seed_checksum --" $tmp/iso_new/isolinux/txt.cfg
 
 echo " creating the remastered iso"
 cd $tmp/iso_new
