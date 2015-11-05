@@ -29,6 +29,7 @@ spinner()
 # set defaults
 default_hostname="$(hostname)"
 default_domain="local"
+default_user=$(id 1000 | cut -d"(" -f2 | cut -d")" -f1)
 tmp=$(pwd)
 
 clear
@@ -50,7 +51,7 @@ if ! grep -q "noninteractive" /proc/cmdline ; then
 	# ask questions
 	read -ep " please enter your preferred hostname: " -i "$default_hostname" hostname
 	read -ep " please enter your preferred domain: " -i "$default_domain" domain
-	read -ep " please enter your username: " -i "haraldvdlaan" username
+	read -ep " please enter your username: " -i "$default_user" username
 fi
 
 # print status message
@@ -90,7 +91,7 @@ usermod -s /usr/bin/zsh $username
 chown $username:$username .z*
 
 # remove /dev/mapper/vg0-tmp to give free space to volume group: vg0
-if [ -f /dev/mapper/vg0-tmp ]; then
+if [ -b /dev/mapper/vg0-tmp ]; then
 	lvremove /dev/mapper/vg0-tmp
 fi
 
