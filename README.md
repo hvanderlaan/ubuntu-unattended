@@ -22,6 +22,11 @@ This script has been tested on and with these two versions as well, but I see no
 * From your command line, run the following commands:
 
 ```
+$ git clione https://github.com/hvanderlaan/ubuntu-unattened
+$ sudo ./create-unattended-iso.sh
+```
+or
+```
 $ wget https://raw.githubusercontent.com/hvanderlaan/ubuntu-unattended/master/create-unattended-iso.sh
 $ chmod 0744 create-unattended-iso.sh
 $ sudo ./create-unattended-iso.sh
