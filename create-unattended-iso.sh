@@ -137,7 +137,7 @@ if [[ ! -f $tmp/$download_file ]]; then
     download "$download_location$download_file"
 fi
 
-# download netson seed file
+# download lvm seed file
 if [[ ! -f $tmp/$seed_file ]]; then
     echo -n " downloading $seed_file: "
     download "https://github.com/hvanderlaan/ubuntu-unattended/raw/master/$seed_file"
