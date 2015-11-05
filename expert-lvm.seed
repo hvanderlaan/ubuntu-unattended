@@ -69,7 +69,7 @@ d-i partman-md/device_remove_md                             boolean     true
 d-i partman-md/confirm                                      boolean     true
 d-i partman-md/confirm_nooverwrite                          boolean     true
 d-i partman-auto/method                                     string      lvm
-#d-i partman-auto-lvm/guided_size                            string      max
+d-i partman-auto-lvm/guided_size                            string      max
 d-i partman-auto-lvm/new_vg_name                            string      vg0
 d-i partman-auto/expert_recipe                              string      \
       boot-swap-var-root ::                                   \

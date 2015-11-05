@@ -89,6 +89,11 @@ wget -O /home/$username/.zshrc 'https://raw.githubusercontent.com/hvanderlaan/zs
 usermod -s /usr/bin/zsh $username
 chown $username:$username .z*
 
+# remove /dev/mapper/vg0-tmp to give free space to volume group: vg0
+if [ -f /dev/mapper/vg0-tmp ]; then
+	lvremove /dev/mapper/vg0-tmp
+fi
+
 # remove myself to prevent any unintended changes at a later stage
 rm $0
 
