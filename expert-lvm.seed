@@ -70,36 +70,55 @@ d-i partman-md/confirm                                      boolean     true
 d-i partman-md/confirm_nooverwrite                          boolean     true
 d-i partman-auto/method                                     string      lvm
 d-i partman-auto-lvm/guided_size                            string      max
-d-i partman-auto-lvm/new_vg_name                            string      system
 d-i partman-auto/expert_recipe                              string      \
       boot-swap-var-root ::                                   \
-              1024 1024 1024 ext4                             \
+              256 256 1256 ext4                               \
                       $primary{ } $bootable{ }                \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ /boot }                     \
               .                                               \
-              1024 1024 1024 swap                             \
-                      $lvmok{ }                               \
+              1000 1000000000 1000000000 free                 \
+                      $primary{ } $defaultignore{ }           \
+                      method { lvm }                          \
+                      vg_name{ vg0 }                          \
+              .                                               \
+              512 512 1515 linux-swap                         \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ swap }                         \
                       method{ swap } format{ }                \
               .                                               \
-              4096 4096 4096 ext4                             \
-                      $lvmok{ }                               \
+              2048 2048 12048 etx4                            \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ root }                         \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ / }                         \
               .                                               \
-              4096 4096 4096 ext4                             \
-                      $lvmok{ }                               \
+              2048 2048 12048 ext4                            \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ usr }                          \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ /usr }                      \
               .                                               \
-              4096 4096 4096 ext4                             \
-                      $lvmok{ }                               \
+              2048 2048 12048 ext4                            \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ home }                         \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ /home }                     \
+              .                                               \
+              3072 3072 13072 ext4                            \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ var }                          \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ /var }                      \
+              .                                               \
+              0 1000000000 1000000000 free                    \
+                      $lvmok{ } in_vg{ vg0 }                  \
+                      lv_name{ tmp }                          \
               .
 d-i partman-partitioning/confirm_write_new_label            boolean     true
 d-i partman/default_filesystem                              string      ext4
