@@ -104,8 +104,8 @@ read -ep " please enter lvm type (guided/expert) : " -i "expert" lvmtype
 # ask user with type of lvm to use
 while true; do
 	case ${lvmtype} in
-		guided) seed_file="haraldvdlaan.seed" ; break ;;
-		expert) seed_file="haraldvdlaan-expert-lvm.seed" ; break ;;
+		guided) seed_file="guided-lvm.seed" ; break ;;
+		expert) seed_file="expert-lvm.seed" ; break ;;
 		* ) echo " please enter only guided or expert." ;;
 	esac
 done
