@@ -92,7 +92,7 @@ chown $username:$username .z*
 
 # remove /dev/mapper/vg0-tmp to give free space to volume group: vg0
 if [ -b /dev/mapper/vg0-tmp ]; then
-	lvremove /dev/mapper/vg0-tmp
+	lvremove -f /dev/mapper/vg0-tmp
 fi
 
 # remove myself to prevent any unintended changes at a later stage
