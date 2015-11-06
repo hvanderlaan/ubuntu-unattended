@@ -120,7 +120,6 @@ d-i partman-partitioning/confirm_write_new_label            boolean     true
 d-i partman/default_filesystem                              string      ext4
 
 # grub boot loader
-# d-i grub-installer grub-installer/bootdev                   string      /dev/vda
 d-i grub-installer/only_debian                              boolean     true
 d-i grub-installer/with_other_os                            boolean     true
 
