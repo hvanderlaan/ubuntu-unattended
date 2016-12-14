@@ -55,10 +55,10 @@ $ sudo ./create-unattended-iso.sh
  please enter your preferred timezone: Europe/Amsterdam
 ```
 
-* Enter your desired username; the default is *haraldvdlaan*:
+* Enter your desired username; the default is *<login name>*:
 
 ```
- please enter your preferred username: haraldvdlaan
+ please enter your preferred username: user
 ```
 
 * Enter the password for your user account; the default is *empty*
@@ -104,7 +104,7 @@ This script does a bunch of stuff, here's the quick walk-through:
  -----
  finished remastering your ubuntu iso file
  the new file is located at: /tmp/ubuntu-14.04.3-server-amd64-unattended.iso
- your username is: haraldvdlaan
+ your username is: <your login name>
  your password is: 
  your hostname is: ubuntu
  your timezone is: Europe/Amsterdam
@@ -115,3 +115,22 @@ This script does a bunch of stuff, here's the quick walk-through:
 Just fire off the init.sh script in your user's home directory to complete the installation. 
 
 ```$ sudo ~/init.sh``` 
+
+### Licensing
+ubuntu-unattended is licensed under the GPLv3:
+```
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+For the full license, see the LICENSE file.
+```
