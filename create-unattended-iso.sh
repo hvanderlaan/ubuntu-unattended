@@ -80,13 +80,13 @@ while true; do
                 download_location="http://releases.ubuntu.com/16.04.1/"   # location of the file to be downloaded
                 new_iso_name="ubuntu-16.04.1-server-amd64-unattended.iso" # filename of the new iso file to be created
                 break;;
-        [3]* )  download_file="ubuntu-14.04.4-server-i386.iso"            # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/14.04.4/"   # location of the file to be downloaded
-                new_iso_name="ubuntu-14.04.4-server-i386-unattended.iso"  # filename of the new iso file to be created
+        [3]* )  download_file="ubuntu-14.04.5-server-i386.iso"            # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/14.04.5/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-14.04.5-server-i386-unattended.iso"  # filename of the new iso file to be created
                 break;;
-        [4]* )  download_file="ubuntu-14.04.4-server-amd64.iso"           # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/14.04.4/"   # location of the file to be downloaded
-                new_iso_name="ubuntu-14.04.4-server-amd64-unattended.iso" # filename of the new iso file to be created
+        [4]* )  download_file="ubuntu-14.04.5-server-amd64.iso"           # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/14.04.5/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-14.04.5-server-amd64-unattended.iso" # filename of the new iso file to be created
                 break;;
         * ) echo " please answer [1], [2], [3] or [4]";;
     esac
