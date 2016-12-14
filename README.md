@@ -12,8 +12,8 @@ The script supports the following Ubuntu editions out of the box:
 
 * Ubuntu 16.04.1 Server LTS i386  - Xenial Xerus
 * Ubuntu 16.04.1 Server LTS i386  - Xenial Xerus
-* Ubuntu 14.04.4 Server LTS i386  - Trusty Tahr
-* Ubuntu 14.04.4 Server LTS amd64 - Trusty Tahr
+* Ubuntu 14.04.5 Server LTS i386  - Trusty Tahr
+* Ubuntu 14.04.5 Server LTS amd64 - Trusty Tahr
 
 This script has been tested on and with these two versions as well, but I see no reason why it shouldn't work with other Ubuntu editions. Other editions would require minor changes to the script though.
 
@@ -43,8 +43,8 @@ $ sudo ./create-unattended-iso.sh
 
   [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus
   [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus
-  [3] Ubuntu 14.04.4 LTS Server i386  - Trusty Tahr
-  [4] Ubuntu 14.04.4 LTS Server amd64 - Trusty Tahr
+  [3] Ubuntu 14.04.5 LTS Server i386  - Trusty Tahr
+  [4] Ubuntu 14.04.5 LTS Server amd64 - Trusty Tahr
 
  please enter your preference: [1|2|3|4]:
 ```
