@@ -55,7 +55,7 @@ $ sudo ./create-unattended-iso.sh
  please enter your preferred timezone: Europe/Amsterdam
 ```
 
-* Enter your desired username; the default is *<login name>*:
+* Enter your desired username; the default is *\<login name\>*:
 
 ```
  please enter your preferred username: user
