@@ -11,7 +11,7 @@ Created by: **Harald van der Laan**
 The script supports the following Ubuntu editions out of the box:
 
 * Ubuntu 16.04.1 Server LTS i386  - Xenial Xerus
-* Ubuntu 16.04.1 Server LTS i386  - Xenial Xerus
+* Ubuntu 16.04.1 Server LTS amd64 - Xenial Xerus
 * Ubuntu 14.04.5 Server LTS i386  - Trusty Tahr
 * Ubuntu 14.04.5 Server LTS amd64 - Trusty Tahr
 
@@ -22,7 +22,7 @@ This script has been tested on and with these two versions as well, but I see no
 * From your command line, run the following commands:
 
 ```
-$ git clione https://github.com/hvanderlaan/ubuntu-unattened
+$ git clone https://github.com/hvanderlaan/ubuntu-unattended
 $ sudo ./create-unattended-iso.sh
 ```
 or
@@ -42,7 +42,7 @@ $ sudo ./create-unattended-iso.sh
  which ubuntu edition would you like to remaster:
 
   [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus
-  [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus
+  [1] Ubuntu 16.04.1 LTS Server amd64 - Xenial Xerus
   [3] Ubuntu 14.04.5 LTS Server i386  - Trusty Tahr
   [4] Ubuntu 14.04.5 LTS Server amd64 - Trusty Tahr
 
@@ -55,7 +55,7 @@ $ sudo ./create-unattended-iso.sh
  please enter your preferred timezone: Europe/Amsterdam
 ```
 
-* Enter your desired username; the default is *<login name>*:
+* Enter your desired username; the default is *\<login name\>*:
 
 ```
  please enter your preferred username: user
