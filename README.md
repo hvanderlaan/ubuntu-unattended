@@ -10,8 +10,8 @@ Created by: **Harald van der Laan**
 
 The script supports the following Ubuntu editions out of the box:
 
-* Ubuntu 16.04.1 Server LTS i386  - Xenial Xerus
-* Ubuntu 16.04.1 Server LTS amd64 - Xenial Xerus
+* Ubuntu 16.04.3 Server LTS i386  - Xenial Xerus
+* Ubuntu 16.04.3 Server LTS amd64 - Xenial Xerus
 * Ubuntu 14.04.5 Server LTS i386  - Trusty Tahr
 * Ubuntu 14.04.5 Server LTS amd64 - Trusty Tahr
 
@@ -41,8 +41,8 @@ $ sudo ./create-unattended-iso.sh
 
  which ubuntu edition would you like to remaster:
 
-  [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus
-  [1] Ubuntu 16.04.1 LTS Server amd64 - Xenial Xerus
+  [1] Ubuntu 16.04.3 LTS Server i386  - Xenial Xerus
+  [1] Ubuntu 16.04.3 LTS Server amd64 - Xenial Xerus
   [3] Ubuntu 14.04.5 LTS Server i386  - Trusty Tahr
   [4] Ubuntu 14.04.5 LTS Server amd64 - Trusty Tahr
 
