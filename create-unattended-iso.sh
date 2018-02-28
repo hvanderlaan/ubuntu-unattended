@@ -48,11 +48,11 @@ function program_is_installed {
 }
 
 # print a pretty header
-echo 
+echo
 echo " +---------------------------------------------------+"
 echo " |            UNATTENDED UBUNTU ISO MAKER            |"
 echo " +---------------------------------------------------+"
-echo 
+echo
 
 if [ ${UID} -ne 0 ]; then
     echo " [-] This script must be runned with root privileges."
@@ -65,20 +65,20 @@ fi
 while true; do
     echo " which ubuntu edition would you like to remaster:"
     echo
-    echo "  [1] Ubuntu 16.04.1 LTS Server i386  - Xenial Xerus"
-    echo "  [2] Ubuntu 16.04.1 LTS Server amd64 - Xenial Xerus"
-    echo "  [3] Ubuntu 14.04.4 LTS Server i386  - Trusty Tahr"
-    echo "  [4] Ubuntu 14.04.4 LTS Server amd64 - Trusty Tahr"
+    echo "  [1] Ubuntu 16.04.3 LTS Server i386  - Xenial Xerus"
+    echo "  [2] Ubuntu 16.04.3 LTS Server amd64 - Xenial Xerus"
+    echo "  [3] Ubuntu 14.04.5 LTS Server i386  - Trusty Tahr"
+    echo "  [4] Ubuntu 14.04.5 LTS Server amd64 - Trusty Tahr"
     echo
     read -p " please enter your preference: [1|2|3|4]: " ubver
     case $ubver in
-	[1]* )  download_file="ubuntu-16.04.1-server-i386.iso"            # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/16.04.1/"   # location of the file to be downloaded
-                new_iso_name="ubuntu-16.04.1-server-i386-unattended.iso"  # filename of the new iso file to be created
+	[1]* )  download_file="ubuntu-16.04.3-server-i386.iso"            # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/16.04.3/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-16.04.3-server-i386-unattended.iso"  # filename of the new iso file to be created
                 break;;
-        [2]* )  download_file="ubuntu-16.04.1-server-amd64.iso"           # filename of the iso to be downloaded
-                download_location="http://releases.ubuntu.com/16.04.1/"   # location of the file to be downloaded
-                new_iso_name="ubuntu-16.04.1-server-amd64-unattended.iso" # filename of the new iso file to be created
+        [2]* )  download_file="ubuntu-16.04.3-server-amd64.iso"           # filename of the iso to be downloaded
+                download_location="http://releases.ubuntu.com/16.04.3/"   # location of the file to be downloaded
+                new_iso_name="ubuntu-16.04.3-server-amd64-unattended.iso" # filename of the new iso file to be created
                 break;;
         [3]* )  download_file="ubuntu-14.04.5-server-i386.iso"            # filename of the iso to be downloaded
                 download_location="http://releases.ubuntu.com/14.04.5/"   # location of the file to be downloaded
@@ -125,7 +125,7 @@ while true; do
 done
 
 read -p " autostart installation on boot (y/n)?" choice
-case "$choice" in 
+case "$choice" in
   y|Y ) autostart=true;;
   * ) autostart=false;;
 esac
@@ -150,7 +150,7 @@ if [ $(program_is_installed "mkpasswd") -eq 0 ] || [ $(program_is_installed "mki
     spinner $!
     (apt-get -y install whois genisoimage > /dev/null 2>&1) &
     spinner $!
-    
+
     # thanks to rroethof
     if [ -f /usr/bin/mkisofs ]; then
       ln -s /usr/bin/genisoimage /usr/bin/mkisofs
@@ -225,7 +225,7 @@ umount $tmp/iso_org
 rm -rf $tmp/iso_new
 rm -rf $tmp/iso_org
 
-# print info to user  
+# print info to user
 echo " -----"
 echo " finished remastering your ubuntu iso file"
 echo " the new file is located at: $tmp/$new_iso_name"
